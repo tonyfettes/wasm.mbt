@@ -1,0 +1,105 @@
+package tonyfettes/wasm
+
+// Values
+fn byte_array2ptr(FixedArray[Byte]) -> Int
+
+fn double_array2ptr(FixedArray[Double]) -> Int
+
+fn f32_load(memory~ : Int = .., Int) -> Float
+
+fn f32_store(memory~ : Int = .., Int, Float) -> Unit
+
+fn f64_load(memory~ : Int = .., Int) -> Double
+
+fn f64_store(memory~ : Int = .., Int, Double) -> Unit
+
+fn float_array2ptr(FixedArray[Float]) -> Int
+
+fn free(Int) -> Unit
+
+fn i32_extend16_s(Int) -> Int
+
+fn i32_extend8_s(Int) -> Int
+
+fn i32_load(memory~ : Int = .., Int) -> Int
+
+fn i32_load16_s(memory~ : Int = .., Int) -> Int
+
+fn i32_load16_u(memory~ : Int = .., Int) -> Int
+
+fn i32_load8_s(memory~ : Int = .., Int) -> Int
+
+fn i32_load8_u(memory~ : Int = .., Int) -> Int
+
+fn i32_store(memory~ : Int = .., Int, Int) -> Unit
+
+fn i32_store16(memory~ : Int = .., Int, Int) -> Unit
+
+fn i32_store8(memory~ : Int = .., Int, Int) -> Unit
+
+fn i64_load(memory~ : Int = .., Int) -> Int64
+
+fn i64_store(memory~ : Int = .., Int, Int64) -> Unit
+
+fn int64_array2ptr(FixedArray[Int64]) -> Int
+
+fn int_array2ptr(FixedArray[Int]) -> Int
+
+fn malloc(Int) -> Int
+
+fn memory_atomic_notify(memory~ : Int = .., Int, Int) -> Unit
+
+fn memory_atomic_wait32(memory~ : Int = .., Int, Int, Int64) -> Int
+
+fn memory_atomic_wait64(memory~ : Int = .., Int, Int64, Int64) -> Int
+
+fn memory_copy(memory~ : Int = .., Int, Int, Int) -> Unit
+
+fn memory_grow(memory~ : Int = .., Int) -> Int
+
+fn memory_size(memory~ : Int = ..) -> Int
+
+fn ptr2byte_array(Int, Int) -> FixedArray[Byte]
+
+fn ptr2double_array(Int, Int) -> FixedArray[Double]
+
+fn ptr2float_array(Int, Int) -> FixedArray[Float]
+
+fn ptr2int64_array(Int, Int) -> FixedArray[Int64]
+
+fn ptr2int_array(Int, Int) -> FixedArray[Int]
+
+fn ptr2str(Int, Int) -> String
+
+fn ptr2uint64_array(Int, Int) -> FixedArray[UInt64]
+
+fn ptr2uint_array(Int, Int) -> FixedArray[UInt]
+
+fn realloc(Int, Int) -> Int
+
+fn str2ptr(String) -> Int
+
+fn uint64_array2ptr(FixedArray[UInt64]) -> Int
+
+fn uint_array2ptr(FixedArray[UInt]) -> Int
+
+// Types and methods
+type Ptr
+impl Ptr {
+  add[T : Sized](Self[T], Int) -> Self[T]
+  load[T : Load](Self[T]) -> T
+  op_get[T : Sized + Load](Self[T], Int) -> T
+  store[T : Store](Self[T], T) -> Unit
+}
+
+// Type aliases
+
+// Traits
+trait Load
+
+pub(open) trait Sized {
+  size() -> Int
+}
+
+trait Store
+

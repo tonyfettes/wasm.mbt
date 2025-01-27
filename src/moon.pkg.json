@@ -1,6 +1,14 @@
 {
   "targets": {
-    "wasm.mbt": ["wasm"],
-    "js.mbt": ["js"]
+    "f32.js.mbt": ["js"],
+    "f32.wasm.mbt": ["wasm", "wasm-gc"],
+    "f64.js.mbt": ["js"],
+    "f64.wasm.mbt": ["wasm", "wasm-gc"],
+    "i32.js.mbt": ["js"],
+    "i32.wasm.mbt": ["wasm", "wasm-gc"],
+    "i64.js.mbt": ["js"],
+    "i64.wasm.mbt": ["wasm", "wasm-gc"],
+    "memory.js.mbt": ["js"],
+    "memory.wasm.mbt": ["wasm", "wasm-gc"]
   }
 }
