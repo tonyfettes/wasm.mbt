@@ -11,6 +11,11 @@ extern "js" fn Memory::new(initial~ : Int, maximum~ : Int) -> Memory =
 let memory_default : Memory = Memory::new(initial=256, maximum=512)
 
 ///|
+pub fn get_default_memory() -> Memory {
+  memory_default
+}
+
+///|
 pub extern "js" fn memory_copy(
   memory~ : Memory = memory_default,
   dst : Int,
