@@ -1,0 +1,14 @@
+{
+  "is-main": true,
+  "import": [
+    "tonyfettes/wasm",
+    "moonbitlang/x/fs",
+    "moonbitlang/x/sys"
+  ],
+  "support-targets": ["native"],
+  "link": {
+    "native": {
+      "cc": "echo"
+    }
+  }
+}
