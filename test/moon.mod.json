@@ -1,0 +1,15 @@
+{
+  "name": "tonyfettes/wasm/test",
+  "version": "0.1.1",
+  "deps": {
+    "tonyfettes/wasm": {
+      "path": ".."
+    },
+    "moonbitlang/x": "0.4.20"
+  },
+  "readme": "README.md",
+  "repository": "",
+  "license": "Apache-2.0",
+  "keywords": [],
+  "description": ""
+}
