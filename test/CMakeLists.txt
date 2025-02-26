@@ -1,1 +1,1 @@
-add_moon_package(wamr)
+add_moon_module(wamr)

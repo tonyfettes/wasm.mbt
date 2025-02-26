@@ -72,7 +72,7 @@ extern type Instance
 pub extern "c" fn Instance::new(
   store : Store,
   module_ : Module,
-  imports : Array[Extern]
+  imports : FixedArray[Extern]
 ) -> Instance = "moonbit_wasm_instance_new"
 
 ///|

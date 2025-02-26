@@ -1,4 +1,5 @@
-set(WAMR_BUILD_PLATFORM "darwin")
+set(WAMR_BUILD_PLATFORM "linux")
+set(WAMR_BUILD_TARGET "X86_64")
 set(WAMR_BUILD_INTERP 1)
 set(WAMR_BUILD_FAST_INTERP 1)
 set(WAMR_BUILD_AOT 1)
@@ -12,3 +13,4 @@ add_library(vmlib ${WAMR_RUNTIME_LIB_SOURCE})
 
 add_moon_executable(wamr)
 target_link_libraries(wamr PRIVATE wasm.mbt vmlib)
+set_target_properties(wamr PROPERTIES COMPILE_FLAGS "-include ${CMAKE_CURRENT_SOURCE_DIR}/wasm-micro-runtime/core/iwasm/include/wasm_c_api.h")

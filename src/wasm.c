@@ -1,8 +1,8 @@
-#include "wasm-c-api/include/wasm.h"
-#include <math.h>
+#include "../test/wamr/wasm-micro-runtime/core/iwasm/include/wasm_c_api.h"
 #include <moonbit.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 void *
 moonbit_c_null() {
@@ -36,11 +36,12 @@ static_assert(sizeof(wasm_byte_t) == sizeof(char), "incompatible byte type");
 
 wasm_module_t *
 moonbit_wasm_module_new(wasm_store_t *store, const moonbit_bytes_t binary) {
-  const size_t binary_length = Moonbit_array_length(binary);
-  wasm_byte_vec_t byte_vec;
-  wasm_byte_vec_new(&byte_vec, binary_length, (const char *)binary);
+  wasm_byte_vec_t byte_vec = {
+    .size = Moonbit_array_length(binary),
+    .data = (char *)binary,
+  };
   wasm_module_t *module = wasm_module_new(store, &byte_vec);
-  wasm_byte_vec_delete(&byte_vec);
+  moonbit_decref(binary);
   return module;
 }
 
@@ -61,9 +62,10 @@ moonbit_wasm_instance_new(
   wasm_module_t *module,
   void **imports
 ) {
-  wasm_extern_vec_t imports_vec = {
-    .size = Moonbit_array_length(imports), .data = (wasm_extern_t **)imports
-  };
+  printf("moonbit_wasm_instance_new: imports = %p\n", imports);
+  printf("moonbit_wasm_instance_new: imports.length() = %d\n", Moonbit_array_length(imports));
+  wasm_extern_vec_t imports_vec;
+  wasm_extern_vec_new(&imports_vec, Moonbit_array_length(imports), (wasm_extern_t **)imports);
   wasm_instance_t *instance =
     wasm_instance_new(store, module, &imports_vec, NULL);
   moonbit_decref(imports);
@@ -86,6 +88,9 @@ moonbit_wasm_extern_vec_new() {
 
 wasm_extern_t *
 moonbit_wasm_extern_vec_get(wasm_extern_vec_t *vec, uint32_t index) {
+  printf("moonbit_wasm_extern_vec_get: vec = %p\n", vec);
+  printf("moonbit_wasm_extern_vec_get: index = %d\n", index);
+  printf("moonbit_wasm_extern_vec_get: vec->data = %p\n", vec->data);
   return vec->data[index];
 }
 
