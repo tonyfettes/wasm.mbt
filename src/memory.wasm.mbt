@@ -67,29 +67,6 @@ pub fn memory_atomic_wait32(
 }
 
 ///|
-extern "wasm" fn memory_atomic_wait64_ffi(
-  address : Int,
-  expected : Int64,
-  timeout : Int64
-) -> Int =
-  #|(func (param i32) (param i64) (param i64) (result i32)
-  #| local.get 0
-  #| local.get 1
-  #| local.get 2
-  #| memory.atomic.wait64)
-
-///|
-pub fn memory_atomic_wait64(
-  memory~ : Memory = 0,
-  address : Int,
-  expected : Int64,
-  timeout : Int64
-) -> Int {
-  ignore(memory)
-  memory_atomic_wait64_ffi(address, expected, timeout)
-}
-
-///|
 extern "wasm" fn memory_atomic_notify_ffi(address : Int, count : Int) =
   #|(func (param i32) (param i32)
   #| local.get 0
