@@ -1,3 +1,4 @@
+///|
 test "i32" {
   @wasm.i32_store(0, 1)
   @wasm.i32_store(4, 2)
