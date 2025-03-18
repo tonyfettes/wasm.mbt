@@ -63,5 +63,6 @@
       ],
       "format": "esm"
     }
-  }
+  },
+  "warn-list": "-44"
 }
