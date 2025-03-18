@@ -1,5 +1,5 @@
 ///|
-type Memory
+extern type Memory
 
 ///|
 extern "js" fn Memory::new(initial~ : Int, maximum~ : Int) -> Memory =

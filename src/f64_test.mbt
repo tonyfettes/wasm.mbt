@@ -1,3 +1,4 @@
+///|
 test "f64" {
   @wasm.f64_store(0, 1.0)
   @wasm.f64_store(8, 2.0)

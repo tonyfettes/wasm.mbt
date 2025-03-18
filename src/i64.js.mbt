@@ -26,9 +26,7 @@ pub extern "js" fn i64_load_ffi(
   #|  return new DataView(memory.buffer).getBigInt64(offset, true);
   #|}
 
-pub fn i64_load(
-  memory~ : Memory = memory_default,
-  offset : Int
-) -> Int64 {
+///|
+pub fn i64_load(memory~ : Memory = memory_default, offset : Int) -> Int64 {
   BigInt::to_int64(i64_load_ffi(memory~, offset))
 }

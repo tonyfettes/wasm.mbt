@@ -1,3 +1,4 @@
+///|
 test "i64" {
   @wasm.i64_store(0, 1)
   @wasm.i64_store(8, 2)
