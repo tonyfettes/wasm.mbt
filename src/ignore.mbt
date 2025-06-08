@@ -1,2 +1,2 @@
 ///|
-fn ignore[T](_ : T) -> Unit = "%ignore"
+fn[T] ignore(_ : T) -> Unit = "%ignore"
